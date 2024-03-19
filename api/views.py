@@ -3,7 +3,7 @@ from .models import Cliente
 from .serializer import ClienteSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from rest_framework.generics import ListCreateAPIView
+from rest_framework.generics import ListCreateAPIView, RetrieveUpdateAPIView
 from rest_framework import status
 
 @api_view(['GET', 'POST'])
@@ -24,3 +24,6 @@ class ClientesView(ListCreateAPIView):
     queryset = Cliente.objects.all()
     serializer_class = ClienteSerializer
 
+class ClientesDetailView(RetrieveUpdateAPIView):
+    queryset = Cliente.objects.all()
+    serializer_class = ClienteSerializer
